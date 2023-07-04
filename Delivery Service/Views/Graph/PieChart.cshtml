@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues = [];
+        var yValues = [];
+        var barColors = [];
+        @{Random rnd = new();}
+        @{int i = 0;}
+        @foreach (var item in Model)
+        {
+            <text>
+                xValues[@i] = "@item.Key";
+                yValues[@i] = @item.Value;
+                barColors[@i] = "rgb("+@rnd.Next(0, 256)+", "+@rnd.Next(0, 256)+", "+@rnd.Next(0, 256)+")";
+            </text>
+            i++;
+        }
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "Активність користувачів"
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

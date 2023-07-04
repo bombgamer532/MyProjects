@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<body>
+	<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+	<script>
+		var xValues = @ViewBag.xValues;
+		var ds = [];
+		@{Random rnd = new();}
+		@{int i = 0;}
+		@foreach (var item in ViewBag.yValues)
+		{
+			<text>
+				var d = [];
+				@{int j = 0;}
+				@foreach (var item2 in item.Value)
+				{
+					@:d[@j] = @item2;
+					j++;
+				}
+				ds[@i] = {
+					data: d,
+					borderColor: "rgb(" + @rnd.Next(0, 256)+", " + @rnd.Next(0, 256)+", " + @rnd.Next(0, 256)+")",
+					fill: false
+				}
+			</text>
+			i++;
+		}
+
+		new Chart("myChart", {
+			type: "line",
+			data: {
+				labels: xValues,
+				datasets: ds
+			},
+			options: {
+				legend: { display: true },
+				title: {
+					display: true,
+					text: "Статистика продажів"
+				}
+			}
+		});
+	</script>
+
+</body>
+</html>

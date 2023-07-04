@@ -1,0 +1,233 @@
+﻿<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Tables</title>
+	<link href="~/styles.css" rel="stylesheet" />
+	<style>
+		ul.images {
+		  margin: 0;
+		  padding: 0;
+		  display: flex;
+		  flex-direction: row;
+		  width: 100%;
+		  overflow-x: auto;
+		  list-style: none;
+		}
+
+		ul.images li {
+		  flex: 0 0 auto;
+		  width: 350px;
+		  height: 200px;
+		}
+		ul.images li img{
+		  max-width: 100%;
+		  max-height: 100%;
+		}
+
+		ul.images li {
+			font-size: 30px;
+			font-family: Arial;
+			color: red;
+			text-shadow: 2px 0 2px black, 
+				0 2px 2px black, 
+				-2px 0 2px black, 
+				0 -2px 2px black;
+			text-align: center;
+			vertical-align: middle;
+		}
+	</style>
+	<script>
+		var productprice = 0;
+		function SelectCategory(name)
+		{
+			document.getElementById('Category').innerHTML = name;
+			var ul = document.getElementById("products");
+			while (ul.firstChild) {
+				ul.removeChild(ul.firstChild);
+			}
+			@{dynamic list = new List<object>();}
+			switch(name){
+				case "Snacks":
+					@foreach (var item in ViewBag.Snacks)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Fruits":
+					@foreach (var item in ViewBag.Fruits)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Vegetables":
+					@foreach (var item in ViewBag.Vegetables)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Drinks":
+					@foreach (var item in ViewBag.Drinks)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Soups":
+					@foreach (var item in ViewBag.Soups)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Hot":
+					@foreach (var item in ViewBag.Hot)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Desserts":
+					@foreach (var item in ViewBag.Desserts)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+				case "Asian food":
+					@foreach (var item in ViewBag.Asianfood)
+					{
+						<text>
+							var li = document.createElement("li");
+							li.setAttribute('style', "background-image:url(@item.Item2); background-position:center; background-size:cover;");
+							li.setAttribute('onclick', "document.getElementById('Product').innerHTML = '@item.Item1'; productprice = @item.Item3;");
+							li.appendChild(document.createTextNode('@item.Item1'));
+							ul.appendChild(li);
+						</text>
+					}
+					break;
+			}
+		}
+
+		function Calculate()
+		{
+			if(productprice > 0)
+			{
+				var finalprice = productprice;
+				var from = document.getElementById('From');
+				from = from.options[from.selectedIndex].text;
+				var fx = 0;
+				var fy = 0;
+				var to = document.getElementById('To');
+				to = to.options[to.selectedIndex].text;
+				var tx = 0;
+				var ty = 0;
+				@foreach(var item in ViewBag.Locations)
+				{
+					<text>
+						if(from == '@item.Address')
+						{
+							fx = @item.Loc.X;
+							fy = @item.Loc.Y;
+						}
+						if(to == '@item.Address')
+						{
+							tx = @item.Loc.X;
+							ty = @item.Loc.Y;
+						}
+					</text>
+				}
+				finalprice += Math.floor(Math.sqrt(Math.pow(tx - fx, 2) + Math.pow(ty - fy, 2))*10);
+				document.getElementById('Result').innerHTML = "Фінальна вартість: " + finalprice;
+			}
+			else
+			{
+				document.getElementById('Result').innerHTML = "Помилка: Оберіть продукт";
+			}
+		}
+	</script>
+</head>
+<body>
+	<h1>Доставка</h1>
+	<!--<div>
+		<form action="/App/Delivery2" method="post">
+			<div class="form-group">
+				<label for="select">Стовпець:</label>
+				<select asp-for="Column" asp-items="Model.Options"></select>
+			</div>
+			<div class="form-group">
+				<label asp-for="Value">Значення:</label>
+				<input type="text" name="value" class="form-control" />
+			</div>
+			<button class="btn btn-primary" type="submit">Знайти</button>
+		</form>
+	</div>-->
+	Обрана категорія: <label id="Category"></label>
+	<ul class="images">
+		@foreach (var item in ViewBag.Categories)
+		{
+			<li style="background-image:url(@item.Item2); background-position:center; background-size:cover;" onclick="SelectCategory('@item.Item1');">@item.Item1</li>
+		}
+	</ul>
+	Обраний продукт: <label id="Product"></label>
+	<ul class="images" id="products">
+		<!--foreach (var item in ViewBag.Products)
+		{
+			<li style="background-image:url(item.Item2); background-position:center; background-size:cover;" onclick="document.getElementById('Category').innerHTML = 'item.Item1';">item.Item1</li>
+		}-->
+	</ul>
+	Відправка від:
+	<select id="From">
+		@foreach (var item in ViewBag.Locations)
+		{
+			<option>@item.Address</option>
+		}
+	</select>
+	<br />Відправка до:
+	<select id="To">
+		@foreach (var item in ViewBag.Locations)
+		{
+			<option>@item.Address</option>
+		}
+	</select>
+	<br /><button class="btn btn-primary" onclick="Calculate();">Підтвердити замовлення</button>
+	<br /><label id="Result"></label>
+</body>
+</html>
