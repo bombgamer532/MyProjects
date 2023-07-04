@@ -1,0 +1,136 @@
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.exe
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.pdb
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.exe
+c:\users\admin\documents\visual studio 2015\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.pdb
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.exe
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.pdb
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.exe
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\bin\Debug\OpenGL_1.pdb
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+E:\Users\Vyacheslav\my doc\Visual Studio 2013\Projects\OpenGL_1\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.Cache
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.exe
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.pdb
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.Cache
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.exe
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.pdb
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+C:\Users\Andrey\Documents\OpenGL_2\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.exe
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.pdb
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.Cache
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.exe
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.pdb
+E:\Downloads_1\Projects\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.Form2.resources
+E:\install\Programming\##_projects_C#_OpenGL\OpenGL_2\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+E:\install\Programming\##_projects_C#_OpenGL\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.exe
+E:\install\Programming\##_projects_C#_OpenGL\OpenGL_2\OpenGL_1\obj\Debug\OpenGL_1.pdb
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.exe
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.pdb
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.DevIl.dll
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.DevIl.xml
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Form2.resources
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.cache
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.CoreCompileInputs.cache
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.CopyComplete
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.exe
+D:\install\Programming\##_projects_C#_OpenGL\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.pdb
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.exe
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\OpenGL_1.pdb
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.DevIl.dll
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.DevIl.xml
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csprojResolveAssemblyReference.cache
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Form2.resources
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.cache
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.CoreCompileInputs.cache
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.csproj.CopyComplete
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.exe
+C:\Users\admin\source\repos\OpenGL_2_start\OpenGL_1\obj\Debug\OpenGL_1.pdb
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\OpenGL_1.exe
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\OpenGL_1.pdb
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.DevIl.dll
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.DevIl.xml
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+C:\Users\User\source\repos\opengl2\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Form2.resources
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.cache
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.CopyComplete
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.exe
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.pdb
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Create.resources
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.SuggestedBindingRedirects.cache
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.AssemblyReference.cache
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.SuggestedBindingRedirects.cache
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Form1.resources
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Form2.resources
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Create.resources
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.Properties.Resources.resources
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.GenerateResource.cache
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.CoreCompileInputs.cache
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.exe
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.pdb
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\OpenGL_1.exe.config
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\OpenGL_1.exe
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\OpenGL_1.pdb
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.DevIl.dll
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.FreeGlut.dll
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.OpenGl.dll
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.Platform.Windows.dll
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.DevIl.xml
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.FreeGlut.xml
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.OpenGl.xml
+D:\Desktop\opengl2\OpenGL_1\bin\Debug\Tao.Platform.Windows.xml
+D:\Desktop\opengl2\OpenGL_1\obj\Debug\OpenGL_1.csproj.CopyComplete
