@@ -1,0 +1,15 @@
+D:\Desktop\cbs test\Task1\Task1\bin\Debug\net6.0\Task1.exe
+D:\Desktop\cbs test\Task1\Task1\bin\Debug\net6.0\Task1.deps.json
+D:\Desktop\cbs test\Task1\Task1\bin\Debug\net6.0\Task1.runtimeconfig.json
+D:\Desktop\cbs test\Task1\Task1\bin\Debug\net6.0\Task1.dll
+D:\Desktop\cbs test\Task1\Task1\bin\Debug\net6.0\Task1.pdb
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.csproj.AssemblyReference.cache
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.AssemblyInfoInputs.cache
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.AssemblyInfo.cs
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.csproj.CoreCompileInputs.cache
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.dll
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\refint\Task1.dll
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.pdb
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\Task1.genruntimeconfig.cache
+D:\Desktop\cbs test\Task1\Task1\obj\Debug\net6.0\ref\Task1.dll
