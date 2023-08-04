@@ -1,0 +1,43 @@
+﻿@model Task4.Models.AuthorModel
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Register</title>
+    <!--<link href="~/styles.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .input-validation-error {
+            border-color: red;
+        }
+    </style>
+</head>
+<body class="card-body">
+    <h1>Додавання автора</h1>
+    <div>
+        <form action="/Author/Add" method="post">
+            <div class="form-group">
+                <label asp-for="Surname">Прізвище:</label>
+                <input type="text" name="surname" class="form-control" />
+                <span asp-validation-for="Surname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name">Ім'я:</label>
+                <input type="text" name="name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Patronymic">По-батькові:</label>
+                <input type="text" name="patronymic" class="form-control" />
+                <span asp-validation-for="Patronymic" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth">Дата народження:</label>
+                <input type="text" name="dateofbirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Додати</button>
+        </form>
+    </div>
+</body>
+</html>

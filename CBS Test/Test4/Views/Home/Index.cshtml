@@ -1,0 +1,31 @@
+﻿<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tables</title>
+    <link href="~/styles.css" rel="stylesheet" />
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+</head>
+<body>
+    <a href="/Author/Add">Додати автора</a>
+    <table class="sortable">
+        <tr>
+            <th>Прізвище</th>
+            <th>Ім'я</th>
+            <th>По-батькові</th>
+            <th>Дата народження</th>
+        </tr>
+        @foreach(var item in Model)
+        {
+            <tr class="item">
+                <td>@item.Surname</td>
+                <td>@item.Name</td>
+                <td>@item.Patronymic</td>
+                <td>@item.DateOfBirth</td>
+                <td><a href="/Author/Edit/@item.Id">Редагувати</a></td>
+                <td><a href="/Author/Delete/@item.Id">Видалити</a></td>
+                <td><a href="/Author/Books/@item.Id">Деталі</a></td>
+            </tr>
+        }
+    </table>
+</body>
+</html>
