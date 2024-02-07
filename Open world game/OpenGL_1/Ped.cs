@@ -17,8 +17,10 @@ namespace OpenGL_1
 	public class Ped : Entity
 	{
         public static List<Ped> All { get; private set; } = new List<Ped>();
-        public List<PedComp> pedcomp = new List<PedComp>();
+        public List<Component> pedcomp = new List<Component>();
 		public float health = 100;
+        public int weapon = 0;
+        public Dictionary<int, int> ammo = new Dictionary<int, int>();
 		public List<Trail> trail = new List<Trail>();
 		public int footstep = 0;
 		public int blood = 0;
@@ -42,16 +44,20 @@ namespace OpenGL_1
 			Random rnd = new Random();
 			byte[] color1 = new byte[] { (byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256) };
 			byte[] color2 = new byte[] { (byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256), (byte)rnd.Next(0, 256) };
-			pedcomp.Add(new PedComp("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, color1[0], color1[1], color1[2]));
-			pedcomp.Add(new PedComp("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, color1[0], color1[1], color1[2]));
-			pedcomp.Add(new PedComp("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, color2[0], color2[1], color2[2]));
-			pedcomp.Add(new PedComp("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, color2[0], color2[1], color2[2]));
-			pedcomp.Add(new PedComp("cube", 25, 70, 0, 0, 0, 0, 10, 40, 10, 255, 255, 150));
-			pedcomp.Add(new PedComp("cube", -25, 70, 0, 0, 0, 0, 10, 40, 10, 255, 255, 150));
-			pedcomp.Add(new PedComp("sphere", 0, 100, 0, 0, 0, 0, 10, 10, 10, 255, 255, 150));
-			pedcomp.Add(new PedComp("cube", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-			pedcomp.Add(new PedComp("cube", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
-			this.type = type;
+			pedcomp.Add(new Component("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, color1[0], color1[1], color1[2]));
+			pedcomp.Add(new Component("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, color1[0], color1[1], color1[2]));
+			pedcomp.Add(new Component("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, color2[0], color2[1], color2[2]));
+			pedcomp.Add(new Component("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, color2[0], color2[1], color2[2]));
+			pedcomp.Add(new Component("cube", 25, 70, 0, 0, 0, 0, 10, 40, 10, 255, 255, 150));
+			pedcomp.Add(new Component("cube", -25, 70, 0, 0, 0, 0, 10, 40, 10, 255, 255, 150));
+			pedcomp.Add(new Component("sphere", 0, 100, 0, 0, 0, 0, 10, 10, 10, 255, 255, 150));
+			pedcomp.Add(new Component("cube", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+			pedcomp.Add(new Component("cube", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+            pedcomp.Add(new Component("cube", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0));
+
+            ammo.Add(0, 0);
+
+            this.type = type;
 			this.x = x;
 			this.y = y;
 			this.z = z;
@@ -104,6 +110,10 @@ namespace OpenGL_1
 		{
 			this.path = path;
 		}
+        public void FindPath()
+        {
+            node = GetClosestCoordFromCoordsById(new Point(x, y, z), pednodes);
+        }
 
         public static List<Point> pednodes = new List<Point>()
         {
@@ -158,6 +168,8 @@ namespace OpenGL_1
             new Point(-56, 100, -3561),
             new Point(-61, 100, -4941),
             new Point(-2931, 100, -4935),
+
+            new Point(-2923, 100, 933)
         };
         public static List<int[]> links = new List<int[]>()
         {
@@ -196,7 +208,7 @@ namespace OpenGL_1
             new int[] {30,28,34},
             new int[] {31,29,32},
             new int[] {32,30,33},
-            new int[] {31,28,30},
+            new int[] {46,28,30},
             new int[] {31,24,23},
 
             new int[] {35,29,13,36},
@@ -212,6 +224,8 @@ namespace OpenGL_1
             new int[] {44,42},
             new int[] {45,43},
             new int[] {42,44},
+
+            new int[] {31,32,33}
         };
         public int node = -1;
         public int lastnode = -1;
@@ -228,134 +242,119 @@ namespace OpenGL_1
             var peds = All;
             var vehs = Vehicle.All;
             var objs = Object.All;
-            for (int j = 0; j < peds.Count; j++)
+            foreach (var p in Ped.All)
             {
-                if (peds[j] != player)
+                if (p != player)
                 {
-                    peds[j].y -= 2;
+                    p.y -= 2;
                 }
-                var water = Water.All;
-                for (int i = 0; i <= water.Count - 1; i++)
+                foreach (var w in Water.All)
                 {
-                    float ox = water[i].x;
-                    float oy = water[i].y;
-                    float oz = water[i].z;
-                    float osx = water[i].sx;
-                    float osy = water[i].sy;
-                    float osz = water[i].sz;
-                    if ((peds[j].x > (ox - osx / 2)) && (peds[j].x < (ox + osx / 2)))
+                    if ((p.x > (w.x - w.sx / 2)) && (p.x < (w.x + w.sx / 2)))
                     {
-                        if ((peds[j].z > (oz - osz / 2)) && (peds[j].z < (oz + osz / 2)))
+                        if ((p.z > (w.z - w.sz / 2)) && (p.z < (w.z + w.sz / 2)))
                         {
-                            if (peds[j].y < oy - 80)
+                            if (p.y < w.y - 80)
                             {
-                                peds[j].y = oy - 80;
+                                p.y = w.y - 80;
                             }
                         }
                     }
                 }
-                if (peds[j].visible == true)
+                if (p.visible == true)
                 {
-                    if (GetDistanceBetweenCoords(player.x, player.y, player.z, peds[j].x, peds[j].y, peds[j].z) < 2500)
+                    if (GetDistanceBetweenCoords(player.x, player.y, player.z, p.x, p.y, p.z) < 2500)
                     {
-                        if (GetDistanceBetweenCoords(player.x, player.y, player.z, peds[j].x, peds[j].y, peds[j].z) < 2000)
+                        if (GetDistanceBetweenCoords(player.x, player.y, player.z, p.x, p.y, p.z) < 2000)
                         {
-                            peds[j].collision = true;
+                            p.collision = true;
                         }
                         else
                         {
-                            peds[j].collision = false;
+                            p.collision = false;
                         }
-                        if (peds[j].type == "regular" || peds[j].type == "neutral+regular")
+                        if (p.type == "regular" || p.type == "neutral+regular")
                         {
-                            if (peds[j].node == -1)
+                            if (p.node == -1)
                             {
-                                peds[j].node = GetClosestCoordFromCoordsById(new Point(peds[j].x, peds[j].y, peds[j].z), pednodes);
+                                p.node = GetClosestCoordFromCoordsById(new Point(p.x, p.y, p.z), pednodes);
                             }
-                            peds[j].ry = GetHeading(peds[j].x, peds[j].z, pednodes[peds[j].node].x, pednodes[peds[j].node].z);
-                            if (peds[j].state == 0)
+                            p.ry = GetHeading(p.x, p.z, pednodes[p.node].x, pednodes[p.node].z);
+                            if (p.state == 0)
                             {
-                                peds[j].x += 1 * dt * Sin(peds[j].ry);
-                                peds[j].z += 1 * dt * Cos(peds[j].ry);
+                                p.x += 1 * dt * Sin(p.ry);
+                                p.z += 1 * dt * Cos(p.ry);
                             }
-                            else if (peds[j].state == 2)
+                            else if (p.state == 2)
                             {
-                                peds[j].x += 2 * dt * Sin(peds[j].ry);
-                                peds[j].z += 2 * dt * Cos(peds[j].ry);
+                                p.x += 2 * dt * Sin(p.ry);
+                                p.z += 2 * dt * Cos(p.ry);
                             }
-                            if (GetDistanceBetweenCoords(peds[j].x, peds[j].y, peds[j].z, pednodes[peds[j].node].x, pednodes[peds[j].node].y, pednodes[peds[j].node].z) < 10)
+                            if (GetDistanceBetweenCoords(p.x, p.y, p.z, pednodes[p.node].x, pednodes[p.node].y, pednodes[p.node].z) < 10)
                             {
-                                if (links[peds[j].node].Length > 1)
+                                if (links[p.node].Length > 1)
                                 {
                                     Random rnd = new Random();
-                                    int r = rnd.Next(0, links[peds[j].node].Length);
-                                    while (links[peds[j].node][r] == peds[j].lastnode)
+                                    int r = rnd.Next(0, links[p.node].Length);
+                                    while (links[p.node][r] == p.lastnode)
                                     {
-                                        r = rnd.Next(0, links[peds[j].node].Length);
+                                        r = rnd.Next(0, links[p.node].Length);
                                     }
-                                    peds[j].lastnode = peds[j].node;
-                                    peds[j].node = links[peds[j].lastnode][r];
+                                    p.lastnode = p.node;
+                                    p.node = links[p.lastnode][r];
                                 }
                                 else
                                 {
-                                    peds[j].lastnode = peds[j].node;
-                                    peds[j].node = links[peds[j].lastnode][0];
+                                    p.lastnode = p.node;
+                                    p.node = links[p.lastnode][0];
                                 }
                             }
-                            if (peds[j].state == 2)
+                            if (p.state == 2)
                             {
                                 if (framecount % 1000 == 0)
                                 {
-                                    peds[j].state = 0;
+                                    p.state = 0;
                                 }
                             }
                         }
-                        else if (peds[j].type == "enemy")
+                        else if (p.type == "enemy")
                         {
-                            peds[j].pedcomp[5] = new PedComp("cube", -15, 85, 15, 0, 30, 0, 10, 10, 40, 255, 255, 150);
-                            peds[j].pedcomp[7] = new PedComp("cube", 0, 85, 35, 0, 0, 0, 7, 10, 7, 0, 0, 0);
-                            peds[j].pedcomp[8] = new PedComp("cube", 0, 90, 40, 0, 0, 0, 7, 7, 20, 0, 0, 0);
+                            p.pedcomp[5] = new Component("cube", -15, 85, 15, 0, 30, 0, 10, 10, 40, 255, 255, 150);
+                            p.pedcomp[7] = new Component("cube", 0, 85, 35, 0, 0, 0, 7, 10, 7, 0, 0, 0);
+                            p.pedcomp[8] = new Component("cube", 0, 90, 40, 0, 0, 0, 7, 7, 20, 0, 0, 0);
 
-                            float x = peds[j].x;
-                            float y = peds[j].y;
-                            float z = peds[j].z;
+                            float x = p.x;
+                            float y = p.y;
+                            float z = p.z;
                             if (GetDistanceBetweenCoords(x, y, z, player.x, player.y, player.z) > 200)
                             {
-                                peds[j].ry = GetHeading(x, z, player.x, player.z);
-                                peds[j].x = x + 2 * dt * Sin(peds[j].ry);
-                                peds[j].z = z + 2 * dt * Cos(peds[j].ry);
+                                p.ry = GetHeading(x, z, player.x, player.z);
+                                p.x = x + 2 * dt * Sin(p.ry);
+                                p.z = z + 2 * dt * Cos(p.ry);
                             }
                             else
                             {
-                                peds[j].ry = GetHeading(x, z, player.x, player.z);
+                                p.ry = GetHeading(x, z, player.x, player.z);
                                 float pitch = GetPitch(x, y + 90, z, player.x, player.y + 45, player.z);
                                 if (framecount % 100 == 0)
                                 {
                                     float radius = 1000f;
-                                    float dist = GetDistanceBetweenCoords(player.x, player.y, player.z, peds[j].x, peds[j].y, peds[j].z);
+                                    float dist = GetDistanceBetweenCoords(player.x, player.y, player.z, p.x, p.y, p.z);
                                     if (dist < radius)
                                     {
-                                        var sound = peds[j].soundShot;
+                                        var sound = p.soundShot;
                                         sound.Open(new Uri(@"D:\Desktop\opengl2\OpenGL_1\Sounds\PISTOL_SHOT1.wav"));
                                         sound.Play();
                                         sound.Volume = (radius - dist) / radius;
                                     }
                                     for (int i = 0; i < 1000; i++)
                                     {
-                                        float heading = peds[j].ry;
-                                        float desiredX = x + i * Cos(pitch) * Sin(heading);
+                                        float desiredX = x + i * Cos(pitch) * Sin(p.ry);
                                         float desiredY = y + 90 + i * Sin(pitch);
-                                        float desiredZ = z + i * Cos(pitch) * Cos(heading);
-                                        for (int k = 0; k < objs.Count; k++)
+                                        float desiredZ = z + i * Cos(pitch) * Cos(p.ry);
+                                        foreach (var o in Object.All)
                                         {
-                                            float ox = objs[k].x;
-                                            float oz = objs[k].y;
-                                            float oy = objs[k].z;
-                                            float oh = objs[k].ry;
-                                            float osx = objs[k].sx;
-                                            float osy = objs[k].sy;
-                                            float osz = objs[k].sz;
-                                            var col = ProcessCollision(ox, oy, oz, oh, osx, osy, osz, 1, desiredX, desiredY, desiredZ);
+                                            var col = ProcessCollision(o.x, o.y, o.z, o.ry, o.sx, o.sy, o.sz, 1, desiredX, desiredY, desiredZ);
                                             if (col.collided == true)
                                             {
                                                 if (Player.bulletholes.Count == 10)
@@ -366,64 +365,34 @@ namespace OpenGL_1
                                                 goto finish;
                                             }
                                         }
-                                        /*for (int k = 0; k < peds.Count; k++)
+                                        foreach (var v in Vehicle.All)
                                         {
-                                            if (k != j)
+                                            if (v.type != "dead")
                                             {
-                                                if (peds[k][0].ToString() != "none")
-                                                {
-                                                    if (peds[k][0].ToString() != "dead")
-                                                    {
-                                                        if (GetDistanceBetweenCoords(desiredX, desiredY, desiredZ, (float)peds[k][1], (float)peds[k][2] + 50, (float)peds[k][3]) < 50)
-                                                        {
-                                                            pedhealth[k] -= 10;
-                                                            peddamaged[k] = true;
-                                                            if (pedhealth[k] <= 0)
-                                                            {
-                                                                //DeletePed(k);
-                                                                peds[k][0] = "dead";
-                                                            }
-                                                            goto finish;
-                                                        }
-                                                        if (peds[k][0].ToString() == "regular")
-                                                        {
-                                                            if (GetDistanceBetweenCoords((float)peds[j][1], (float)peds[j][2], (float)peds[j][3], (float)peds[k][1], (float)peds[k][2] + 50, (float)peds[k][3]) < 500)
-                                                            {
-                                                                pedstate[k] = 2;
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }*/
-                                        for (int k = 0; k < vehs.Count; k++)
-                                        {
-                                            if (vehs[k].type != "dead")
-                                            {
-                                                float ox = vehs[k].x;
-                                                float oy = vehs[k].y + 35;
-                                                float oz = vehs[k].z;
-                                                float oh = vehs[k].ry;
+                                                float ox = v.x;
+                                                float oy = v.y + 35;
+                                                float oz = v.z;
+                                                float oh = v.ry;
                                                 float osx = 90;
                                                 float osy = 70;
                                                 float osz = 200;
-                                                if (vehs[k] is Helicopter)
+                                                if (v is Helicopter)
                                                 {
                                                     osy = 100;
                                                 }
                                                 var col = ProcessCollision(ox, oy, oz, oh, osx, osy, osz, 1, desiredX, desiredY, desiredZ);
                                                 if (col.collided == true)
                                                 {
-                                                    vehs[k].health -= 10;
-                                                    vehs[k].damaged = true;
-                                                    if (vehs[k].health <= 0)
+                                                    v.health -= 10;
+                                                    v.damaged = true;
+                                                    if (v.health <= 0)
                                                     {
-                                                        if (vehs[k].user != null)
+                                                        if (v.user != null)
                                                         {
-                                                            vehs[k].user.type = "dead";
-                                                            vehs[k].user.visible = true;
+                                                            v.user.type = "dead";
+                                                            v.user.visible = true;
                                                         }
-                                                        vehs[k].type = "dead";
+                                                        v.type = "dead";
                                                         new Explosion(ox, oy, oz, 150);
                                                     }
                                                     goto finish;
@@ -458,71 +427,47 @@ namespace OpenGL_1
                 }
                 else
                 {
-                    for (int i = 0; i < vehs.Count; i++)
+                    foreach (var v in Vehicle.All)
                     {
-                        if (vehs[i].type != "dead")
+                        if (v.type != "dead")
                         {
-                            if (vehs[i].user == peds[j])
+                            if (v.user == p)
                             {
-                                if (peds[j].type == "enemy")
+                                if (p.type == "enemy")
                                 {
-                                    if (GetDistanceBetweenCoords(vehs[i].x, vehs[i].y, vehs[i].z, player.x, player.y, player.z) > 1000)
+                                    if (GetDistanceBetweenCoords(v.x, v.y, v.z, player.x, player.y, player.z) > 1000)
                                     {
-                                        vehs[i].ry = GetHeading(vehs[i].x, vehs[i].z, player.x, player.z);
-                                        vehs[i].speed = 2;
-                                        vehs[i].x += vehs[i].speed * dt * Sin(vehs[i].ry);
-                                        vehs[i].z += vehs[i].speed * dt * Cos(vehs[i].ry);
+                                        v.ry = GetHeading(v.x, v.z, player.x, player.z);
+                                        v.speed = 2;
+                                        v.x += v.speed * dt * Sin(v.ry);
+                                        v.z += v.speed * dt * Cos(v.ry);
                                     }
                                     else
                                     {
-                                        peds[j].LeaveVehicle();
+                                        p.LeaveVehicle();
                                     }
                                 }
-                                if (GetDistanceBetweenCoords(player.x, player.y, player.z, vehs[i].x, vehs[i].y, vehs[i].z) < 2500)
+                                if (GetDistanceBetweenCoords(player.x, player.y, player.z, v.x, v.y, v.z) < 2500)
                                 {
-                                    peds[j].x = vehs[i].x;
-                                    peds[j].y = vehs[i].y;
-                                    peds[j].z = vehs[i].z;
-                                    peds[j].ry = vehs[i].ry;
+                                    p.x = v.x;
+                                    p.y = v.y;
+                                    p.z = v.z;
+                                    p.ry = v.ry;
                                 }
                             }
                         }
                     }
                 }
-                if (peds[j].type == "dead")
+                if (p.type == "dead")
                 {
                     if (framecount % 1000 == 0)
                     {
-                        peds[j].Delete();
-                        peds.RemoveAt(j);
+                        peds.Remove(p);
+                        p.Delete();
                         break;
                     }
                 }
             }
         }
-	}
-	public class PedComp
-	{
-		public string type;
-		public float x, y, z;
-		public float rx, ry, rz;
-		public float sx, sy, sz;
-		public byte r, g, b;
-		public PedComp(string type, float x, float y, float z, float rx, float ry, float rz, float sx, float sy, float sz, byte r, byte g, byte b)
-		{
-			this.type = type;
-			this.x = x;
-			this.y = y;
-			this.z = z;
-			this.rx = rx;
-			this.ry = ry;
-			this.rz = rz;
-			this.sx = sx;
-			this.sy = sy;
-			this.sz = sz;
-			this.r = r;
-			this.g = g;
-			this.b = b;
-		}
 	}
 }

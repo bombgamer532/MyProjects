@@ -42,10 +42,10 @@ namespace OpenGL_1
                                 if (GetDistanceBetweenCoords(player.x, player.y, player.z, pednodes[r].x, pednodes[r].y, pednodes[r].z) < 2000)
                                 {
                                     peds.Add(new Ped("enemy", pednodes[r].x, pednodes[r].y, pednodes[r].z, 0));
-                                    peds.Last().pedcomp[0] = new PedComp("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[1] = new PedComp("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[2] = new PedComp("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[3] = new PedComp("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[0] = new Component("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[1] = new Component("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[2] = new Component("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[3] = new Component("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
                                 }
                             }
                         }
@@ -60,10 +60,10 @@ namespace OpenGL_1
                                 if (GetDistanceBetweenCoords(player.x, player.y, player.z, pednodes[r].x, pednodes[r].y, pednodes[r].z) < 2000)
                                 {
                                     peds.Add(new Ped("enemy", pednodes[r].x, pednodes[r].y, pednodes[r].z, 0));
-                                    peds.Last().pedcomp[0] = new PedComp("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[1] = new PedComp("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[2] = new PedComp("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[3] = new PedComp("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[0] = new Component("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[1] = new Component("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[2] = new Component("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[3] = new Component("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
                                 }
                             }
                         }
@@ -78,10 +78,10 @@ namespace OpenGL_1
                                 if (GetDistanceBetweenCoords(player.x, player.y, player.z, pednodes[r].x, pednodes[r].y, pednodes[r].z) < 2000)
                                 {
                                     peds.Add(new Ped("enemy", pednodes[r].x, pednodes[r].y, pednodes[r].z, 0));
-                                    peds.Last().pedcomp[0] = new PedComp("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[1] = new PedComp("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[2] = new PedComp("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[3] = new PedComp("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[0] = new Component("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[1] = new Component("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[2] = new Component("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[3] = new Component("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
                                 }
                             }
                             if (cars.Count < 3)
@@ -91,13 +91,13 @@ namespace OpenGL_1
                                 if (GetDistanceBetweenCoords(player.x, player.y, player.z, carnodes[r].x, carnodes[r].y, carnodes[r].z) < 2000)
                                 {
                                     cars.Add(new Car(carnodes[r].x, carnodes[r].y, carnodes[r].z, 0));
-                                    cars.Last().vehcomp[4] = new VehComp("cube", 0, 30, 0, 0, 0, 0, 90, 30, 200, 0, 0, 0);
-                                    cars.Last().vehcomp[7] = new VehComp("cube", 0, 60, 0, 0, 0, 0, 90, 30, 55, 0, 0, 0);
+                                    cars.Last().vehcomp[4] = new Component("cube", 0, 30, 0, 0, 0, 0, 90, 30, 200, 0, 0, 0);
+                                    cars.Last().vehcomp[7] = new Component("cube", 0, 60, 0, 0, 0, 0, 90, 30, 55, 0, 0, 0);
                                     peds.Add(new Ped("enemy", carnodes[r].x, carnodes[r].y, carnodes[r].z, 0));
-                                    peds.Last().pedcomp[0] = new PedComp("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[1] = new PedComp("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[2] = new PedComp("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
-                                    peds.Last().pedcomp[3] = new PedComp("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[0] = new Component("cube", 10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[1] = new Component("cube", -10, 25, 0, 0, 0, 0, 10, 50, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[2] = new Component("cube", 0, 70, 0, 0, 0, 0, 30, 40, 10, 0, 0, 0);
+                                    peds.Last().pedcomp[3] = new Component("cube", 0, 85, 0, 0, 0, 0, 40, 10, 10, 0, 0, 0);
                                     peds.Last().WarpIntoVehicle(cars.Last());
                                 }
                             }

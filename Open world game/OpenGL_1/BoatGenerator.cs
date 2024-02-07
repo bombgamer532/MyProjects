@@ -1,69 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static OpenGL_1.Form1;
 using static OpenGL_1.Util;
+using static OpenGL_1.Boat;
 
 namespace OpenGL_1
 {
     internal class BoatGenerator
     {
-        public static List<BoatGenerator> All { get; private set; } = new List<BoatGenerator>();
-        public List<float[]> path;
-        public int num;
-        public Boat[] boats;
-        public BoatGenerator(List<float[]> path, int num)
-        {
-            boats = new Boat[num];
-            this.path = path;
-            this.num = num;
-            All.Add(this);
-        }
+        public static List<Boat> boats = new List<Boat>();
+        public static List<Ped> peds = new List<Ped>();
         public static void GenerateBoats(object sender, EventArgs e)
         {
-            var gens = All;
-            for (int i = 0; i < gens.Count; i++)
+            if (framecount % 10 == 0)
             {
-                for (int j = 0; j < gens[i].num; j++)
+                if (boats.Count < 10)
                 {
-                    if (framecount % (500 * (j + 1)) == 0)
+                    Random rnd = new Random();
+                    int r = rnd.Next(0, boatnodes.Count);
+                    if (GetDistanceBetweenCoords(player.x, player.y, player.z, boatnodes[r].x, boatnodes[r].y, boatnodes[r].z) < 2000)
                     {
-                        if (gens[i].boats.ElementAtOrDefault(j) == null)
-                        {
-                            Random rnd = new Random();
-                            int r = rnd.Next(0, gens[i].path.Count);
-                            if (GetDistanceBetweenCoords(player.x, player.y, player.z, gens[i].path[r][0], gens[i].path[r][1], gens[i].path[r][2]) < 2000)
-                            {
-                                gens[i].boats[j] = new Boat(gens[i].path[r][0], gens[i].path[r][1], gens[i].path[r][2], 0);
-                                var tempped = new Ped("regular", gens[i].path[r][0], gens[i].path[r][1], gens[i].path[r][2], 0);
-                                tempped.WarpIntoVehicle(gens[i].boats[j]);
-                                gens[i].boats[j].path = gens[i].path;
-                                if (r + 1 < gens[i].path.Count)
-                                {
-                                    gens[i].boats[j].pathid = r + 1;
-                                }
-                                else
-                                {
-                                    gens[i].boats[j].pathid = 0;
-                                }
-                            }
-                        }
-                        else if (gens[i].boats[j].type == "dead")
-                        {
-                            gens[i].boats[j].Delete();
-                            gens[i].boats[j] = null;
-                        }
-                        else
-                        {
-                            if (GetDistanceBetweenCoords(player.x, player.y, player.z, gens[i].boats[j].x, gens[i].boats[j].y, gens[i].boats[j].z) > 2500)
-                            {
-                                gens[i].boats[j].Delete();
-                                gens[i].boats[j] = null;
-                            }
-                        }
+                        boats.Add(new Boat(boatnodes[r].x, boatnodes[r].y, boatnodes[r].z, 0));
+                        peds.Add(new Ped("regular", boatnodes[r].x, boatnodes[r].y, boatnodes[r].z, 0));
+                        peds.Last().WarpIntoVehicle(boats.Last());
+                    }
+                }
+            }
+            if (framecount % 500 == 0)
+            {
+                foreach (var b in boats)
+                {
+                    if ((GetDistanceBetweenCoords(player.x, player.y, player.z, b.x, b.y, b.z) < 2500) || (b.type == "dead"))
+                    {
+                        boats.Remove(b);
+                        b.Delete();
+                        break;
                     }
                 }
             }

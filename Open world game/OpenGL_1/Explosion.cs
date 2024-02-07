@@ -24,18 +24,17 @@ namespace OpenGL_1
         }
         public static void Exploding(object sender, EventArgs e)
         {
-            var explosions = All;
-            for (int i = 0; i < explosions.Count; i++)
+            foreach (var ex in All)
             {
                 Gl.glPushMatrix();
-                Gl.glTranslatef(explosions[i].x, explosions[i].y, explosions[i].z);
+                Gl.glTranslatef(ex.x, ex.y, ex.z);
                 Gl.glColor4ub(200, 200, 0, 100);
-                Glut.glutSolidSphere(explosions[i].radius * explosions[i].spread, 32, 32);
+                Glut.glutSolidSphere(ex.radius * ex.spread, 32, 32);
                 Gl.glPopMatrix();
-                explosions[i].spread += 0.1f;
-                if (explosions[i].spread > 1)
+                ex.spread += 0.1f;
+                if (ex.spread > 1)
                 {
-                    All.RemoveAt(i);
+                    All.Remove(ex);
                     break;
                 }
             }

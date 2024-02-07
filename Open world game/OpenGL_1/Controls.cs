@@ -36,6 +36,8 @@ namespace OpenGL_1
 			Key.Add("Num5", false);
 			Key.Add("Num0", false);
 			Key.Add("H", false);
+			Key.Add("WheelUp", false);
+			Key.Add("WheelDown", false);
 		}
 		public static void Form1_KeyDown(object sender, KeyEventArgs e)
 		{
@@ -100,6 +102,24 @@ namespace OpenGL_1
 		{
 			if (e.Button == MouseButtons.Left) Key["LMB"] = false;
 			if (e.Button == MouseButtons.Right) Key["RMB"] = false;
+		}
+		public static void pov_MouseWheel(object sender, MouseEventArgs e)
+		{
+			if (e.Delta > 0)
+			{
+				Key["WheelDown"] = false;
+				Key["WheelUp"] = true;
+			}
+			else if (e.Delta < 0)
+			{
+				Key["WheelUp"] = false;
+				Key["WheelDown"] = true;
+			}
+			else
+			{
+				Key["WheelUp"] = false;
+				Key["WheelDown"] = false;
+			}
 		}
 	}
 }

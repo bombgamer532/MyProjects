@@ -51,6 +51,7 @@ namespace OpenGL_1
             this.pov.TabIndex = 9;
             this.pov.MouseDown += new System.Windows.Forms.MouseEventHandler(pov_MouseDown);
             this.pov.MouseUp += new System.Windows.Forms.MouseEventHandler(pov_MouseUp);
+            this.pov.MouseWheel += new System.Windows.Forms.MouseEventHandler(pov_MouseWheel);
             // 
             // Form1
             // 
